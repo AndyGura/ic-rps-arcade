@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0410" />
+    <title>RPS Arcade</title>
+    <meta name="description" content="Rock-Paper-Scissors on the Internet Computer, arcade style. Two players, one round at a time." />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="press-start-2p.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="cabinet">
+      <div id="bg" aria-hidden="true">
+        <div class="sky"></div>
+        <div class="stars s1"></div>
+        <div class="stars s2"></div>
+        <div class="sun"></div>
+        <div class="horizon"></div>
+        <div class="floor"><div class="grid"></div></div>
+      </div>
+
+      <div id="app">
+        <header id="topbar">
+          <div class="brand">RPS<span>ARCADE</span></div>
+          <nav class="top-actions">
+            <button class="btn btn-small" id="scores-toggle" title="High scores">HI-SCORES</button>
+            <button class="btn btn-small" id="sound-toggle" title="Sound [M]" aria-pressed="true">♪ ON</button>
+            <button class="btn btn-small" id="crt-toggle" title="CRT filter [C]" aria-pressed="true">CRT ON</button>
+          </nav>
+        </header>
+
+        <div id="alert" role="alert" hidden></div>
+
+        <main id="screen"></main>
+
+        <footer id="footer">
+          <span>PLAYER ID <code id="sid">…</code></span>
+          <button class="btn btn-small" id="new-sid" title="Play as a different player">NEW ID</button>
+          <span class="footer-hint">ONE PLAYER PER TAB · OPEN A 2ND TAB FOR LOCAL 2P · M SOUND · C CRT</span>
+        </footer>
+      </div>
+
+      <div id="fx" aria-live="polite"></div>
+      <div id="flash" aria-hidden="true"></div>
+      <div id="crt" aria-hidden="true"><div class="scan"></div><div class="roll"></div><div class="vignette"></div></div>
+    </div>
+
+    <div id="scores-panel" class="overlay" hidden>
+      <div class="overlay-card">
+        <h2 class="panel-title">HIGH SCORES</h2>
+        <div id="scores-body"></div>
+        <button class="btn" id="scores-back">BACK</button>
+      </div>
+    </div>
+
+    <div id="gate" class="overlay gate" hidden>
+      <div class="gate-inner">
+        <div class="gate-logo">
+          <span class="chroma" data-text="ROCK">ROCK</span>
+          <span class="chroma" data-text="PAPER">PAPER</span>
+          <span class="chroma" data-text="SCISSORS">SCISSORS</span>
+        </div>
+        <p class="press-start blink">PRESS START</p>
+        <p class="gate-hint">CLICK OR PRESS ENTER · SOUND ON</p>
+        <p class="gate-credit">© 2026 · INSERT COIN</p>
+      </div>
+    </div>
+
+    <dialog id="code-dialog" class="pixel-dialog">
+      <form method="dialog">
+        <h2 class="panel-title">LOCKED TABLE</h2>
+        <p>ENTER THE ACCESS CODE</p>
+        <input type="text" maxlength="16" autocomplete="off" spellcheck="false" aria-label="Access code" />
+        <div class="row">
+          <button class="btn btn-primary" value="ok">JOIN</button>
+          <button class="btn" value="">CANCEL</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="confirm-dialog" class="pixel-dialog">
+      <form method="dialog">
+        <h2 class="panel-title">QUIT?</h2>
+        <p>LEAVING NOW FORFEITS THE MATCH.</p>
+        <div class="row">
+          <button class="btn btn-danger" value="yes">QUIT</button>
+          <button class="btn btn-primary" value="">KEEP FIGHTING</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
