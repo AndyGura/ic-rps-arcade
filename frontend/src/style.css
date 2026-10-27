@@ -331,14 +331,19 @@ body.crt-off #crt {
 }
 
 .brand {
+  margin: 0;
   color: var(--pink);
   font-size: 14px;
+  font-weight: normal;
+  line-height: inherit;
   letter-spacing: 2px;
+  /* A real space between RPS and ARCADE (for search engines and screen
+     readers), narrowed to the 6px gap the logo is drawn with. */
+  word-spacing: -10px;
 }
 
 .brand span {
   color: var(--cyan);
-  margin-left: 6px;
 }
 
 .top-actions {
@@ -368,6 +373,61 @@ body.crt-off #crt {
 
 .footer-hint {
   margin-left: auto;
+}
+
+/* About / how to play: below the fold, the page's readable text. */
+#about {
+  margin-top: 28px;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--faint);
+}
+
+#about h2,
+#about h3 {
+  font-family: "Press Start 2P", ui-monospace, monospace;
+  font-weight: normal;
+  line-height: 1.6;
+}
+
+#about h3 {
+  margin: 22px 0 8px;
+  font-size: 10px;
+  color: var(--cyan);
+}
+
+#about p,
+#about ol,
+#about ul {
+  margin: 0;
+  max-width: 72ch;
+}
+
+#about ol,
+#about ul {
+  padding-left: 22px;
+}
+
+#about li + li {
+  margin-top: 4px;
+}
+
+#about strong {
+  color: var(--ink);
+  font-weight: normal;
+}
+
+#about em {
+  color: var(--yellow);
+  font-style: normal;
+}
+
+#about kbd {
+  font: inherit;
+  color: var(--ink);
+  border: 2px solid var(--cyan-deep);
+  padding: 0 5px;
 }
 
 /* Floats over the page instead of pushing it down, so nothing jumps. */

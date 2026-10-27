@@ -1,7 +1,7 @@
 // 16×16 pixel-art sprites, drawn as crisp SVG rects. One character per
 // pixel; "." is transparent. Rows shorter than 16 are padded.
 
-const PALETTE = {
+export const PALETTE = {
   k: "#12061c", // outline
   w: "#ffffff",
   W: "#d9d2ff", // paper shade
@@ -19,7 +19,7 @@ const PALETTE = {
   r: "#ff3d5a",
 };
 
-const ART = {
+export const ART = {
   rock: [
     "................",
     "................",

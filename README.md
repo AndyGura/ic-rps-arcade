@@ -28,7 +28,23 @@ npm run build          # -> frontend/dist/
 ```
 
 `frontend/dist/` is the whole site: `index.html`, `app.js` (everything
-bundled by esbuild), `style.css`, the pixel font and the favicon.
+bundled by esbuild), `style.css`, the pixel font, the favicon, and the
+SEO files the build generates: `og-image.png` (1200×630 link-preview
+card), PNG icons, `site.webmanifest`, `robots.txt` and `sitemap.xml`.
+
+The page's public address, `https://uv7c2-yiaaa-aaaak-qzk2a-cai.icp.net`,
+is the `SITE_URL` constant in `frontend/build.js`. For a build that goes
+somewhere else, override it:
+
+```bash
+SITE_URL=https://<frontend-canister-id>.icp.net npm run build
+```
+
+It fills the canonical link, `og:url`/`og:image`, the JSON-LD `url` and
+`sitemap.xml`, which all need an absolute URL. The canonical link also
+tells search engines which of a canister's addresses (`icp0.io`,
+`ic0.app`, `raw.icp0.io`, …) is the real one. Without `SITE_URL` the
+build leaves those out and warns (`SITE_URL= npm run build`).
 
 ## Run it locally
 
@@ -115,8 +131,9 @@ well. A tie scores nobody. First to the target takes the match.
 backend.did              the live backend's Candid (from hosty.live's module store), for reference
 frontend/
   package.json  build.js
+  og-image.js            build-time PNGs: Open Graph card and app icons (no dependencies)
   src/
-    index.html           page shell: background, CRT overlay, dialogs
+    index.html           page shell: SEO meta, background, CRT overlay, dialogs, how-to-play text
     app.js               bootstrap: backend id, agent, transport, client, CPU flow, hi-scores
     arcade-ui.js         every screen, the arena, the READY?/FIGHT! reveal, clocks
     rps-plugin.js        the GamePlugin: Candid types and rules mirror

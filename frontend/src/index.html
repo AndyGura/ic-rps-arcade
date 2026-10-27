@@ -4,9 +4,33 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0b0410" />
-    <title>RPS Arcade</title>
-    <meta name="description" content="Rock-Paper-Scissors on the Internet Computer, arcade style. Two players, one round at a time." />
+    <title>%TITLE%</title>
+    <meta name="description" content="%DESCRIPTION%" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="application-name" content="RPS Arcade" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="RPS Arcade" />
+    <meta property="og:title" content="%TITLE%" />
+    <meta property="og:description" content="%DESCRIPTION%" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="%TITLE%" />
+    <meta name="twitter:description" content="%DESCRIPTION%" />
+    <!-- seo:absolute -->
+    <link rel="canonical" href="%SITE_URL%/" />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta property="og:image" content="%SITE_URL%/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="RPS Arcade: pixel-art rock, paper and scissors on a synthwave horizon" />
+    <meta name="twitter:image" content="%SITE_URL%/og-image.png" />
+    <!-- /seo:absolute -->
+    <!-- seo:jsonld -->
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="preconnect" href="https://icp0.io" crossorigin />
     <link rel="preload" href="press-start-2p.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -23,7 +47,7 @@
 
       <div id="app">
         <header id="topbar">
-          <div class="brand">RPS<span>ARCADE</span></div>
+          <h1 class="brand">RPS <span>ARCADE</span></h1>
           <nav class="top-actions">
             <button class="btn btn-small" id="scores-toggle" title="High scores">HI-SCORES</button>
             <button class="btn btn-small" id="sound-toggle" title="Sound [M]" aria-pressed="true">♪ ON</button>
@@ -40,6 +64,53 @@
           <button class="btn btn-small" id="new-sid" title="Play as a different player">NEW ID</button>
           <span class="footer-hint">ONE PLAYER PER TAB · OPEN A 2ND TAB FOR LOCAL 2P · M SOUND · C CRT</span>
         </footer>
+
+        <article id="about" class="panel" aria-labelledby="about-title">
+          <h2 id="about-title" class="panel-title">PLAY ROCK PAPER SCISSORS ONLINE</h2>
+          <p>
+            RPS Arcade is a free online Rock Paper Scissors game with a retro arcade look: pixel-art fighters,
+            a synthwave grid, 8-bit sound and a CRT filter. Play two-player matches against real people,
+            or take on the CPU. No download and no sign-up: open the page and you get a player ID.
+          </p>
+
+          <section aria-labelledby="how-title">
+            <h3 id="how-title">How to play</h3>
+            <ol>
+              <li><strong>New game</strong>: pick your seat, the mode (Classic or +Well), how many round wins take the match (1 to 9) and whether the table is open or locked with an access code.</li>
+              <li><strong>Arcade floor</strong>: join an open table someone else is waiting at.</li>
+              <li><strong>VS CPU</strong>: play a bot when nobody else is around (shown when bots are available).</li>
+              <li><strong>Invite a friend</strong>: copy the invite link on the waiting screen and send it; it takes them straight to your table.</li>
+              <li>Both players choose a move in secret. When both are in, the round is revealed: <em>Ready? Fight! K.O.</em></li>
+            </ol>
+          </section>
+
+          <section aria-labelledby="rules-title">
+            <h3 id="rules-title">Rules</h3>
+            <ul>
+              <li>Rock beats scissors, scissors beats paper, paper beats rock.</li>
+              <li>In <strong>+Well</strong> mode a fourth move joins: the well beats rock and scissors, and paper beats the well.</li>
+              <li>A tie scores for nobody. The first player to reach the target number of round wins takes the match.</li>
+              <li>The <strong>Hi-Scores</strong> board ranks players by ELO rating.</li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="keys-title">
+            <h3 id="keys-title">Controls</h3>
+            <p>
+              <kbd>1</kbd>–<kbd>4</kbd> or <kbd>R</kbd> <kbd>P</kbd> <kbd>S</kbd> <kbd>W</kbd> pick a move,
+              <kbd>Enter</kbd> asks for a rematch, <kbd>M</kbd> turns sound on or off and <kbd>C</kbd> toggles
+              the CRT filter. On a phone, just tap.
+            </p>
+          </section>
+
+          <section aria-labelledby="ic-title">
+            <h3 id="ic-title">On the Internet Computer</h3>
+            <p>
+              Tables, moves and results live in a smart contract (a canister) on the Internet Computer, not on a
+              private game server. Players on other frontends of the same game meet you at the same tables.
+            </p>
+          </section>
+        </article>
       </div>
 
       <div id="fx" aria-live="polite"></div>
